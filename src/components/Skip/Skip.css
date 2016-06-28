@@ -1,0 +1,33 @@
+/**
+ * <Skip /> component style
+ */
+
+.container {
+  position: absolute;
+  bottom: 6rem;  right: 0;
+  padding: .85rem 1rem .8rem 1.5rem;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  font-family: 'Chalet-LondonNineteenEighty';
+  font-size: .8rem;
+  color: white;
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  left: -.2rem;
+  margin-top: -.2rem;
+}
+
+.text {
+  position: relative;
+  top: -.066rem;
+}
+
+.container:hover {
+  background-color: #F05F4A;
+}

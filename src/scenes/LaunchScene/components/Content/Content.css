@@ -1,0 +1,44 @@
+/**
+ * <LaunchScene /> component style
+ */
+
+.wrapper {
+  position: absolute;
+  margin-top: 1.5rem;
+  left: 50%; top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.button {
+  opacity: .5;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  top: 50%; left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #4C58A3;
+  border-radius: 50%;
+  transition: width ease .3s 1s, height ease .3s 1s;
+}
+
+.circle:hover {
+  transition-delay: .2s;
+  width: 19rem;
+  height: 19rem;
+}
+
+.subtitle {
+  position: relative;
+  top: .125rem;
+  font-size: 1.75rem;
+  letter-spacing: .133em;
+  color: rgba(255, 255, 255, .5);
+  text-shadow: 0 1px 0 #323d81;
+}

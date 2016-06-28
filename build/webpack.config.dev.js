@@ -50,6 +50,11 @@ module.exports = {
         'css?modules&localIdentName=[name]__[local]___[hash:base64:5]',
         'postcss',
       ],
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loaders: [
+        'file-loader?name=[path][name].[ext]'
+      ]
     }],
   },
 };

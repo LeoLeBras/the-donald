@@ -1,0 +1,31 @@
+export const words = [{
+  name: 'Rich',
+  rank: 3,
+}, {
+  name: 'Megalomaniac',
+  rank: 4,
+}, {
+  name: 'Radial',
+  rank: 3,
+}, {
+  name: 'Controversial',
+  rank: 4,
+}, {
+  name: 'Cynical',
+  rank: 5,
+}, {
+  name: 'Arrogant',
+  rank: 1,
+}, {
+  name: 'Showman',
+  rank: 3,
+}, {
+  name: 'President',
+  rank: 5,
+}, {
+  name: 'Winner',
+  rank: 2,
+}, {
+  name: 'Clear',
+  rank: 4,
+}]

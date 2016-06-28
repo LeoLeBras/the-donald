@@ -1,0 +1,14 @@
+/**
+ * <LifeScene /> component style
+ */
+
+.container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('http://localhost:3001/images/chapter-one-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

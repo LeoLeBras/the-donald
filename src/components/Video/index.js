@@ -1,6 +1,8 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import styles from './Video'
 
 type Props = {
   source: string,
@@ -8,25 +10,43 @@ type Props = {
 }
 
 class Video extends Component {
+
+  timer = null
+
   componentDidMount() {
     const { onTrackDuration } = this.props
-    // setInterval(() => {
-    //   onTrackDuration(
-    //     this.refs.video.currentTime
-    //   )
-    // }, 500)
+    this.timer = setInterval(() => {
+      onTrackDuration(
+        this.refs.video.currentTime
+      )
+    }, 500)
   }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
   render() {
-    const { source } = this.props
+    const { source, player } = this.props
     return (
-      <video
-        ref="video"
-        muted={true}
-        autoPlay={true}
-        src={source}>
-      </video>
+      <div className={styles.container}>
+        <video
+          ref="video"
+          className={styles.video}
+          muted={player.muted}
+          autoPlay={true}
+          src={source}>
+        </video>
+      </div>
     )
   }
+
 }
 
-export default Video
+const mapStateToProps = (state) => ({
+  player: state.player,
+})
+
+export default connect(
+  mapStateToProps
+)(Video)

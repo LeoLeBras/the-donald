@@ -3,69 +3,67 @@
 import React, { Component } from 'react'
 import ReactTransitionGroup from 'react-addons-transition-group'
 import { Link } from 'react-router'
-import { TransitionMotion, Motion, spring } from 'react-motion'
+import { Motion, spring } from 'react-motion'
+import { withRouter } from 'react-router'
+import { compose } from 'recompose'
 import Title from '@components/Title'
-import Video from '@components/Video'
+import Skip from '@components/Skip'
+import StartButton from '@components/StartButton'
 import styles from './LaunchScene'
+import Video from './components/Video'
+import Content from './components/Content'
 
 type State = {
   open: boolean,
 }
 
 class LaunchScene extends Component {
+
   state: State = { open: false }
 
-  handleState() {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
-  componentWillLeave(callback) {
-    this.setState({
-      open: !this.state.open
-    })
-    setTimeout(() => {
-      callback()
-    }, 100000)
-  }
-
-  componentDidAppear() {
-    console.log('componentDidAppear')
-  }
-  componentDidEnter() {
-    console.log('componentDidEnter')
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount')
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 
   onTrackDuration(time) {
-    console.log(time)
+    if (Math.floor(time) == 6) {
+      this.setState({ open: true })
+    }
+  }
+
+  onSkipingContent() {
+    this.setState({ open: true })
+  }
+
+  onNext() {
+    this.context.router.replace('/life')
+  }
+
+  componentWillLeave(callback) {
+    console.log('componentWillLeavecomponentWillLeave')
+    setTimeout(
+      () => callback(),
+      0
+    )
   }
 
   render() {
+    const { open } = this.state
     return (
       <div className={styles.container}>
         <Video
           onTrackDuration={::this.onTrackDuration}
-          source="http://localhost:3001/videos/launch.mp4"
+          onSkipingContent={::this.onSkipingContent}
+          open={open}
         />
-        <Motion style={{ toValue: spring(this.state.open ? 1 : 0) }}>
-          {({ toValue }) => (
-            <div style={{ opacity: toValue }}>
-              <div className={styles.circle}></div>
-              <div className={styles.wrapper}>
-              <Title>Donald Trump</Title><br/>
-              <span className={styles.substitle}>Why is winning ?</span>
-              </div>
-            </div>
-          )}
-        </Motion>
+        <Content
+          onNext={::this.onNext}
+          open={open}
+        />
       </div>
     )
   }
+
 }
 
 export default LaunchScene

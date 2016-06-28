@@ -5,4 +5,5 @@
 .text {
   font-family: 'BaseTwelveSansSCBI';
   -webkit-font-smoothing: antialiased;
+  text-shadow: 0 2px 0 #323d81;
 }
