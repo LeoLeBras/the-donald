@@ -1,0 +1,35 @@
+/**
+ * <LaunchScene /> component style
+ */
+
+ .container {
+   height: 100vh;
+ }
+
+.wrapper {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  width: 12.5rem;
+  height: 12.5rem;
+  top: 50%; left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #4C58A3;
+  border-radius: 50%;
+}
+
+.box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: rgb(130, 181, 198);
+}

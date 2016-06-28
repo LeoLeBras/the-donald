@@ -1,0 +1,15 @@
+/**
+ * <Container /> component style
+ */
+
+.container {
+  display: flex;
+  position: absolute;
+  left: 0;  right: 0;
+  height: 3rem;
+  padding: 0 1rem;
+  justify-content: space-between;;
+  align-items: center;
+  bottom: 0;
+  background-color: white;
+}

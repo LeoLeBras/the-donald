@@ -1,0 +1,21 @@
+/**
+ * <Nav /> component style
+ */
+
+.container {
+  float: right;
+}
+
+.text {
+  position: relative;
+  top: -.01rem;
+  margin-left: 18px;
+  font-size: .85em;
+  letter-spacing: .15em;
+  color: rgba(0, 0, 0, .25);
+  cursor: pointer;
+}
+
+.text:hover {
+  color: rgba(0, 0, 0, 1);
+}

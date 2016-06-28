@@ -1,0 +1,8 @@
+/**
+ * <Title /> component style
+ */
+
+.text {
+  font-family: 'BaseTwelveSansSCBI';
+  -webkit-font-smoothing: antialiased;
+}

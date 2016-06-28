@@ -1,0 +1,17 @@
+/**
+ * <Control /> component style
+ */
+
+.container {
+  display: inline-block;
+}
+
+.item {
+  display: inline-block;
+  position: relative;
+  top: .1rem;
+}
+
+.item + .item {
+  margin-left: .5rem;
+}
