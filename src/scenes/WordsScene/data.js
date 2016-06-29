@@ -1,31 +1,51 @@
 export const words = [{
+  id: 0,
   name: 'Rich',
   rank: 3,
+  gif: 'http://i.giphy.com/wJNGA01o1Zxp6.gif',
 }, {
+  id: 1,
   name: 'Megalomaniac',
-  rank: 4,
+  rank: 2,
+  gif: 'http://i2.wp.com/fusion.net/wp-content/uploads/2016/03/cannotunsee6.gif',
 }, {
+  id: 3,
   name: 'Radial',
   rank: 3,
+  gif: 'http://i.giphy.com/wJNGA01o1Zxp6.gif',
 }, {
+  id: 4,
   name: 'Controversial',
   rank: 4,
+  gif: 'http://i0.wp.com/fusion.net/wp-content/uploads/2016/03/cannotunsee5.gif',
 }, {
+  id: 5,
   name: 'Cynical',
   rank: 5,
+  gif: 'http://i.giphy.com/3oEduLBXrQxgjk9W8g.gif',
 }, {
+  id: 6,
   name: 'Arrogant',
   rank: 1,
+  gif: 'http://i.giphy.com/wJNGA01o1Zxp6.gif',
 }, {
+  id: 7,
   name: 'Showman',
   rank: 3,
+  gif: 'http://i.giphy.com/wJNGA01o1Zxp6.gif',
 }, {
+  id: 8,
   name: 'President',
   rank: 5,
+  gif: 'http://i.giphy.com/GHZ9RZFGqsWbK.gif',
 }, {
+  id: 9,
   name: 'Winner',
   rank: 2,
+  gif: 'http://i.giphy.com/wJNGA01o1Zxp6.gif',
 }, {
+  id: 10,
   name: 'Clear',
   rank: 4,
+  gif: 'http://i0.wp.com/fusion.net/wp-content/uploads/2016/03/cannotunsee10.gif?resize=740%2C555&quality=80&strip=all',
 }]

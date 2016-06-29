@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './Box'
 
 type Props = {
@@ -38,16 +38,31 @@ function getHeight(rank: number): string {
   }
 }
 
-const Box = (props: Props): React$Element => {
-  const { name, rank } = props
-  return (
-    <div className={styles.container} style={{
-      width: getWidth(rank),
-      height: getHeight(rank),
-    }}>
-      {name}
-    </div>
-  )
+class Box extends Component {
+
+  props: Props
+
+  render(): React$Element {
+    const { name, rank, gif, selectBox, id, active } = this.props
+    return (
+      <div
+        className={styles.container}
+        style={{
+          width: getWidth(rank),
+          height: getHeight(rank),
+        }}
+        onMouseEnter={() => selectBox(id)}>
+        <img className={styles.gif} src={gif} />
+        <div className={styles.text}>
+          {name}
+        </div>
+        { !active &&
+          <div className={styles.overlay}></div>
+        }
+      </div>
+    )
+  }
+
 }
 
 export default Box
