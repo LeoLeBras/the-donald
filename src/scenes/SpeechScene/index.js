@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react'
-import Back from './components/Back'
+import Back from '@components/Back'
 import Graph from './components/Graph'
 import Video from './components/Video'
 import Content from './components/Content'

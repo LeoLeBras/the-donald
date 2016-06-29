@@ -6,12 +6,17 @@ import styles from './VideoContainer'
 
 type Props = {
   source: string,
+  enableDurationHandling: boolean,
   onTrackDuration: Function,
 }
 
 class VideoContainer extends Component {
 
   timer = null
+
+  static defaultProps = {
+    enableDurationHandling: false
+  }
 
   componentDidMount() {
     const { onTrackDuration } = this.props
@@ -36,8 +41,10 @@ class VideoContainer extends Component {
         this.refs.video.play()
       }
     }
-    if (nextProps.currentTime.key !== this.props.currentTime.key) {
-      this.refs.video.currentTime = nextProps.currentTime.value
+    if (nextProps.enableDurationHandling) {
+      if (nextProps.currentTime.key !== this.props.currentTime.key) {
+        this.refs.video.currentTime = nextProps.currentTime.value
+      }
     }
   }
 

@@ -7,6 +7,7 @@ import LaunchScene from '@scenes/LaunchScene'
 import LifeScene from '@scenes/LifeScene'
 import SelectScene from '@scenes/SelectScene'
 import WordsScene from '@scenes/WordsScene'
+import WordScene from '@scenes/WordScene'
 import SpeechScene from '@scenes/SpeechScene'
 
 export default (
@@ -16,5 +17,6 @@ export default (
     <Route path="select" component={SelectScene} />
     <Route path="speech" component={SpeechScene} />
     <Route path="words" component={WordsScene} />
+    <Route path="word/:slug" component={WordScene} />
   </Route>
 )

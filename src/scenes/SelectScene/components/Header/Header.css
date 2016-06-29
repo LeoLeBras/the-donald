@@ -20,7 +20,8 @@
 .text {
   font-family: 'Agenda-Medium';
   color: white;
-  max-width: 33rem;
-  letter-spacing: 0;
+  max-width: 35rem;
+  letter-spacing: .025em;
   line-height: 1.25em;
+  -webkit-font-smoothing: antialiased;
 }

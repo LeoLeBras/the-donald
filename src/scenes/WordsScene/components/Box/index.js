@@ -1,6 +1,9 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import className from 'classnames'
+import FavoriteIcon from './FavoriteIcon'
+import ArrowIcon from './ArrowIcon'
 import styles from './Box'
 
 type Props = {
@@ -8,55 +11,48 @@ type Props = {
   rank: number,
 }
 
-function getWidth(rank: number): string {
-  switch (rank) {
-    case 1:
-      return '25.25rem'
-    case 2:
-      return '25.25rem'
-    case 3:
-      return '12.5rem'
-    case 4:
-      return '12.5rem'
-    case 5:
-      return '12.5rem'
-  }
-}
-
-function getHeight(rank: number): string {
-  switch (rank) {
-    case 1:
-      return '25.25rem'
-    case 2:
-      return '25.25rem'
-    case 3:
-      return '12.5rem'
-    case 4:
-      return '12.5rem'
-    case 5:
-      return '12.5rem'
-  }
-}
-
 class Box extends Component {
 
   props: Props
 
+  state = {
+    liked: false
+  }
+
+  onLiked() {
+    this.setState({
+      liked: !this.state.liked,
+    })
+  }
+
   render(): React$Element {
-    const { name, rank, gif, selectBox, id, active } = this.props
+    const { onClick, name, rank, slug, selectBox, id, active } = this.props
+    const likes = parseInt(this.props.likes) + parseInt(this.state.liked ? 1 : 0)
     return (
       <div
-        className={styles.container}
-        style={{
-          width: getWidth(rank),
-          height: getHeight(rank),
-        }}
+        className={className({
+          [styles.container]: true,
+          [styles.largeContainer]: rank == 1,
+          [styles.mediumContainer]: rank == 2,
+        })}
         onMouseEnter={() => selectBox(id)}>
-        <img className={styles.gif} src={gif} />
-        <div className={styles.text}>
-          {name}
+        <img className={styles.gif} src={`http://api-trump.mickaelzhang.com/gif/${slug}`} />
+        <div className={styles.content}>
+          <div className={styles.title} onClick={onClick}>
+            <ArrowIcon className={styles.arrowIcon} />
+            {name}
+          </div>
+          { active &&
+            <div className={className({
+              [styles.favorite]: true,
+              [styles.activeFavorite]: this.state.liked,
+            })} onClick={::this.onLiked}>
+              <FavoriteIcon />
+              <span className={styles.likes}>{likes}</span>
+            </div>
+          }
         </div>
-        { !active &&
+        { active &&
           <div className={styles.overlay}></div>
         }
       </div>

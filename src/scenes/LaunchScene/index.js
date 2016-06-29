@@ -39,14 +39,6 @@ class LaunchScene extends Component {
     this.context.router.replace('/life')
   }
 
-  componentWillLeave(callback) {
-    console.log('componentWillLeavecomponentWillLeave')
-    setTimeout(
-      () => callback(),
-      0
-    )
-  }
-
   render() {
     const { open } = this.state
     return (

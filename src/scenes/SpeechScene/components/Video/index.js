@@ -26,6 +26,7 @@ class Video extends Component {
           key: Math.random(),
           value: currentTime,
         }}
+        enableDurationHandling={true}
       />
     )
   }

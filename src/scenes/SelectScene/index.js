@@ -14,7 +14,7 @@ class SelectScene extends Component {
   render(): React$Element {
     const { router } = this.context
     return (
-      <div>
+      <div className={styles.container}>
         <Part
           image="http://localhost:3001/images/trump-guy.jpg"
           text="Par ses discours"

@@ -8,4 +8,5 @@
   width: 100vw;
   overflow: hidden;
   cursor: pointer;
+  -webkit-font-smoothing: antialiased;
 }
