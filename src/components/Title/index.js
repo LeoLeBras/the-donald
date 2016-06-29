@@ -9,7 +9,7 @@ type Props = {
 
 const Title = (props: Props): React$Element => {
   const { children } = props
-  const size = props.size || '5.5rem'
+  const size = props.size || '9rem'
   return (
     <span className={styles.text} style={{ fontSize: size }}>
       {children}

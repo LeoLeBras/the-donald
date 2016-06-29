@@ -15,6 +15,9 @@ const Content = (props): React$Element => {
     <div>
       <div className={styles.circle}></div>
       <div className={styles.wrapper}>
+        <div className={styles.metadata}>Chapter 1 | 1min</div>
+        <div className={styles.title}>Trump</div>
+        <div className={styles.subtitle}>His Childhood</div>
         <StartButton onPress={onNext} />
       </div>
     </div>

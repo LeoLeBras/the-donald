@@ -31,9 +31,11 @@ const Video = (props: Props): React$Element => {
           <div style={{ opacity: toValue }} className={styles.overlay}></div>
         )}
       </Motion>
-      <Skip
-        onPress={() => onSkipingContent()}
-      />
+      { !open &&
+        <Skip
+          onPress={() => onSkipingContent()}
+        />
+      }
     </div>
   )
 }

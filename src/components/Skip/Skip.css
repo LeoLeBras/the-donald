@@ -15,6 +15,8 @@
   color: white;
   letter-spacing: .1em;
   cursor: pointer;
+  background-color: #F05F4A;
+  transition: ease .2s padding;
 }
 
 .icon {
@@ -29,5 +31,5 @@
 }
 
 .container:hover {
-  background-color: #F05F4A;
+  padding-right: 1.5rem;
 }

@@ -19,7 +19,7 @@ const Content = (props: Props) => {
         <div style={{ opacity: toValue }}>
           <div className={styles.circle}></div>
           <div className={styles.wrapper}>
-            <Title>Donald Trump</Title><br/>
+            <Title>Trump</Title><br/>
             <span className={styles.subtitle}>Why is winning ?</span>
             <StartButton onPress={onNext} />
           </div>

@@ -3,6 +3,9 @@
 import React, { Component } from 'react'
 import Back from '@components/Back'
 import Header from './components/Header'
+import Text from './components/Text'
+import styles from './WordScene'
+import content from './content.json'
 
 class WordScene extends Component {
 
@@ -11,10 +14,14 @@ class WordScene extends Component {
   }
 
   render(): React$Element {
+    const { slug } = this.props.params
+    const word = content.find(item => item.slug == slug)
     return (
-      <div>
-        <Header />
-        content...
+      <div className={styles.container}>
+        <Header
+          title={word.title}
+        />
+        <Text>{word.content}</Text>
         <Back goBack={() => this.context.router.replace('/words')} />
       </div>
     )

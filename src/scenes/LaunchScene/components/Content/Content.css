@@ -4,7 +4,7 @@
 
 .wrapper {
   position: absolute;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   left: 50%; top: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 1;
@@ -19,8 +19,8 @@
 .circle {
   display: block;
   position: absolute;
-  width: 17rem;
-  height: 17rem;
+  width: 19rem;
+  height: 19rem;
   top: 50%; left: 50%;
   transform: translateX(-50%) translateY(-50%);
   background-color: #4C58A3;
@@ -36,9 +36,8 @@
 
 .subtitle {
   position: relative;
-  top: .125rem;
+  top: -.25rem;
   font-size: 1.75rem;
   letter-spacing: .133em;
   color: rgba(255, 255, 255, .5);
-  text-shadow: 0 1px 0 #323d81;
 }

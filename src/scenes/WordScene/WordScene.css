@@ -1,0 +1,8 @@
+/**
+ * <WordScene /> component style
+ */
+
+.container {
+  height: calc(100vh - 2rem);
+  overflow-y: scroll;
+}
