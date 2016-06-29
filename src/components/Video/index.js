@@ -19,7 +19,7 @@ class Video extends Component {
       onTrackDuration(
         this.refs.video.currentTime
       )
-    }, 500)
+    }, 750)
   }
 
   componentWillUnmount() {

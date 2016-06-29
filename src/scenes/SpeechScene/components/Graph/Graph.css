@@ -1,0 +1,8 @@
+/**
+ * <Graph /> component style
+ */
+
+.container {
+  position: absolute;
+  bottom: 2rem;
+}

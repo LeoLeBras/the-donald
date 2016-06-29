@@ -1,0 +1,29 @@
+/**
+ * <Content /> component style
+ */
+
+.container {
+  position: absolute;
+  top: 50%;   left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  color: white;
+  letter-spacing: .05em;
+  z-index: 2;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+}
+
+.box {
+  display: block;
+  position: absolute;
+  width: 75%;
+  height: 8rem;
+  background-color: #4C58A3;
+  left: 12.5%;
+  top: -1rem;
+  z-index: 0;
+}

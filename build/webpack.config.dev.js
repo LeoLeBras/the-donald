@@ -55,6 +55,9 @@ module.exports = {
       loaders: [
         'file-loader?name=[path][name].[ext]'
       ]
+    }, {
+      test: /\.json?$/,
+      loaders: ['json']
     }],
   },
 };
