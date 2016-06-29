@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Motion, spring } from 'react-motion'
-import VideoModule from '@components/Video'
+import VideoContainer from '@containers/VideoContainer'
 import Skip from '@components/Skip'
 import styles from './Video'
 
@@ -19,7 +19,7 @@ const Video = (props: Props): React$Element => {
       <Motion style={{ toValue: spring(open ? 1.33 : 1) }}>
         {({ toValue }) => (
           <div style={{ transform: `scale(${toValue})` }}>
-            <VideoModule
+            <VideoContainer
               onTrackDuration={() => onTrackDuration()}
               source="http://localhost:3001/videos/launch.mp4"
             />

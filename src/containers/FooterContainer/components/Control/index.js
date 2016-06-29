@@ -6,11 +6,14 @@ import Volum from './Volum'
 import styles from './Control'
 
 const Control = (props: Props): React$Element => {
-  const { player, mute } = props
+  const { pause, player, mute } = props
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <PlayPause />
+        <PlayPause
+          pause={pause}
+          paused={player.paused}
+        />
       </div>
       <div className={styles.item}>
         <Volum

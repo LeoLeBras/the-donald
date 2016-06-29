@@ -15,7 +15,6 @@ class DefaultLayout extends Component {
     const { children } = this.props
     const { pathname } = this.props.location;
     const key = pathname.split('/')[1] || 'root';
-    console.log(key)
     return (
       <div className={styles.container}>
         <TransitionGroup component="div" className={styles.wrapper}>

@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styles from './Video'
+import styles from './VideoContainer'
 
 type Props = {
   source: string,
   onTrackDuration: Function,
 }
 
-class Video extends Component {
+class VideoContainer extends Component {
 
   timer = null
 
@@ -17,13 +17,28 @@ class Video extends Component {
     const { onTrackDuration } = this.props
     this.timer = setInterval(() => {
       onTrackDuration(
-        this.refs.video.currentTime
+        this.refs.video.currentTime,
+        this.refs.video.duration
       )
     }, 750)
   }
 
   componentWillUnmount() {
     clearInterval(this.timer)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { paused } = nextProps.player
+    if (paused !== this.props.player.paused) {
+      if (paused) {
+        this.refs.video.pause()
+      } else {
+        this.refs.video.play()
+      }
+    }
+    if (nextProps.currentTime.key !== this.props.currentTime.key) {
+      this.refs.video.currentTime = nextProps.currentTime.value
+    }
   }
 
   render() {
@@ -49,4 +64,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps
-)(Video)
+)(VideoContainer)

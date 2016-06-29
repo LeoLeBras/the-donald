@@ -1,20 +1,35 @@
 /* @flow */
 
-import React from 'react'
-import VideoModule from '@components/Video'
+import React, { Component } from 'react'
+import VideoContainer from '@containers/VideoContainer'
 
 type Props = {
-  onTrackDuration: Function
+  onTrackDuration: Function,
+  currentTime: number,
 }
 
-const Video = (props: Props): React$Element => {
-  const { onTrackDuration } = props
-  return (
-    <VideoModule
-      source="http://localhost:3001/videos/launch.mp4"
-      onTrackDuration={onTrackDuration}
-    />
-  )
+class Video extends Component {
+
+  props: Props
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.currentTime !==this.props.currentTime
+  }
+
+  render(): React$Element {
+    const { onTrackDuration, currentTime } = this.props
+    return (
+      <VideoContainer
+        source="http://localhost:3001/videos/launch.mp4"
+        onTrackDuration={onTrackDuration}
+        currentTime={{
+          key: Math.random(),
+          value: currentTime,
+        }}
+      />
+    )
+  }
+
 }
 
 export default Video

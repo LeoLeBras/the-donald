@@ -1,10 +1,14 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import Back from './components/Back'
 import Graph from './components/Graph'
 import Video from './components/Video'
 import Content from './components/Content'
-import data from './data.json'
+import Trumpastic from './components/Trumpastic'
+import wordsData from './data/words.json'
+import eventsData from './data/events.json'
+import popularityData from './data/popularity.json'
 import styles from './SpeechScene'
 
 type Props = {}
@@ -21,38 +25,142 @@ class SpeechScene extends Component {
   state: State = {
     word: null,
     event: null,
+    progress: 0,
+    score: 0,
+    currentTimeVideo: 0,
   }
 
-  onTrackDuration(time) {
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
+
+  onTrackDuration(time, videoDuration) {
+
+    // Normalizr events and words
+    const newState = {}
     const duration = `00:${Math.floor(time) < 10 ? '0' : ''}${Math.floor(time)}`.split(':').join('')
-    const content = data.filter(
-      item => {
-        return (
-          item.from.split(':').join('') <= duration &&
-          item.to.split(':').join('') >= duration
-        )
-      }
+    const words = wordsData.filter(
+      item => (
+        item.from.split(':').join('') <= duration &&
+        item.to.split(':').join('') >= duration
+      )
     )
-    if (content.length > 0) {
-      content.forEach(item => {
-        if (item.type == 'word') {
-          this.setState({
-            word: item.payload.word
-          })
-        }
-      })
-      console.log(content)
+    const events = eventsData.filter(
+      item => (
+        item.from.split(':').join('') <= duration &&
+        item.to.split(':').join('') >= duration
+      )
+    )
+
+    // Remove word / event
+    if (!words.length && this.state.word !== null) {
+      newState.word = null
     }
+    if (!events.length && this.state.event !== null) {
+      newState.event = null
+    }
+
+    // Add word
+    words.forEach(item => {
+      newState.word = item.name
+    })
+
+    // Add event
+    events.forEach(item => {
+      newState.event = {
+        name: item.name,
+        date: item.date,
+      }
+    })
+
+    // Handle progress
+    const currentEvent = eventsData.filter(
+      item => (
+        item.from.split(':').join('') <= duration
+      )
+    ).reverse()[0]
+    const currentPopularityItem = currentEvent
+      ? popularityData.d
+        .map((item, index) => ({
+          ...item,
+          index
+        }))
+        .find(
+          (item) =>  item.d == currentEvent.date
+        )
+      : null
+
+
+    const progress = currentPopularityItem
+      ? currentPopularityItem.index / (popularityData.d.length - 1)
+      : 0
+
+    const score = Math.floor(
+      currentPopularityItem
+        ? currentPopularityItem.m / 32 * 100
+        : 0
+    )
+
+    // Set state
+    this.setState({
+      ...newState,
+      progress,
+      score,
+    })
   }
 
-   render(): React$Element {
+  onChangeCurrentTime(e) {
+    const videoDuration = 96
+    const x = e.pageX || e.pageY
+      ? e.pageX
+      : e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
+
+    const duration =
+      (x / window.innerWidth * videoDuration)
+      * popularityData.d.length / videoDuration
+
+    const currentPopularityItem = popularityData.d
+      .map((item, index) => ({
+        ...item,
+        index
+      }))
+      .filter(item => item.index < duration)
+      .filter(item => eventsData.find(event => event.date == item.d))
+      .reverse()[0]
+
+    const currentEvent = eventsData
+      .find(event => currentPopularityItem.d == event.date)
+
+    if (currentEvent) {
+      this.setState({
+        currentTimeVideo: Math.floor(currentEvent.from.split(':')[1])
+      })
+    }
+
+  }
+
+  render(): React$Element {
     return (
-      <div className={styles.container}>
+      <div className={styles.container} onClick={::this.onChangeCurrentTime}>
         <Video
           onTrackDuration={::this.onTrackDuration}
+          currentTime={this.state.currentTimeVideo}
         />
-        <Graph />
-        <Content {...this.state} />
+        <Graph
+          events={eventsData}
+          popularity={popularityData}
+          progress={this.state.progress}
+        />
+        <Content
+          word={this.state.word}
+          event={this.state.event}
+        />
+        <Trumpastic
+          score={this.state.score}
+        />
+        <Back
+          goBack={() => this.context.router.replace('/select')}
+        />
       </div>
     )
   }

@@ -4,5 +4,14 @@
 
 .container {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.25rem;
+  pointer-events: none;
+}
+
+.chart {
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  transition: width .75s linear;
+  pointer-events: none;
 }

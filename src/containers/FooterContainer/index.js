@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { mute } from '@store/modules/player'
+import { mute, pause } from '@store/modules/player'
 import Container from './components/Container'
 import Control from './components/Control'
 import Nav from './components/Nav'
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => ({
   player: state.player,
 })
 
-const mapActionsToProps = { mute }
+const mapActionsToProps = { mute, pause }
 
 export default connect(
   mapStateToProps,

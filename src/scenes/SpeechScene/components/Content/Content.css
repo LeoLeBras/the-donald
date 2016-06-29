@@ -2,28 +2,73 @@
  * <Content /> component style
  */
 
-.container {
+.wordContainer {
   position: absolute;
   top: 50%;   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 6rem;
+  font-size: 5.5rem;
   color: white;
   letter-spacing: .05em;
   z-index: 2;
+  pointer-events: none;
 }
 
-.text {
+.wordText {
   position: relative;
   z-index: 1;
 }
 
-.box {
+.wordBox {
   display: block;
   position: absolute;
   width: 75%;
-  height: 8rem;
+  height: 7.75rem;
   background-color: #4C58A3;
   left: 12.5%;
-  top: -1rem;
+  top: -1.2rem;
   z-index: 0;
+}
+
+.eventContainer {
+  position: absolute;
+  top: 50%;   left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.eventBox {
+  width: 18rem;
+  height: 18rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.eventTitle {
+  position: absolute;
+  top: 50%;  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-family: 'BaseTwelveSansSCBI';
+  -webkit-font-smoothing: antialiased;
+}
+
+.eventDate {
+  position: absolute;
+  top: 50%;  left: 50%;
+  transform: translate(-50%, -250%);
+  font-size: 1.25rem;
+  opacity: .5;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .66);
+  pointer-events: none;
+}
+
+.container {
+  pointer-events: none;
 }

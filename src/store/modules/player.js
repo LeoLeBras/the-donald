@@ -1,9 +1,11 @@
 /* @flow */
 
 const MUTE = 'MUTE'
+const PAUSE = 'PAUSE'
 
 const initialState = {
   muted: false,
+  paused: false,
 }
 
 export default function player(state = initialState, action) {
@@ -13,6 +15,11 @@ export default function player(state = initialState, action) {
         ...state,
         muted: !state.muted,
       }
+    case PAUSE:
+      return {
+        ...state,
+        paused: !state.paused,
+      }
     default:
       return state
   }
@@ -20,4 +27,8 @@ export default function player(state = initialState, action) {
 
 export const mute = () => ({
   type: MUTE,
+})
+
+export const pause = () => ({
+  type: PAUSE,
 })

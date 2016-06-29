@@ -1,0 +1,31 @@
+/**
+ * <Back /> component style
+ */
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  padding: .75rem;
+  padding-right: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #F05F4A;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  letter-spacing: .15em;
+  transition: ease padding .2s;
+  z-index: 10;
+}
+
+.container:hover {
+  padding-left: 1.25rem;
+}
+
+.icon {
+  position: relative;
+  top: -.1rem;
+  margin-right: .33rem;
+}
