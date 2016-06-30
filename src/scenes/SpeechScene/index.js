@@ -1,7 +1,10 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { pause } from '@store/modules/player'
 import Back from '@components/Back'
+
 import Graph from './components/Graph'
 import Video from './components/Video'
 import Content from './components/Content'
@@ -32,6 +35,12 @@ class SpeechScene extends Component {
 
   static contextTypes = {
     router: React.PropTypes.object.isRequired
+  }
+
+  componentDidMount() {
+    if (this.props.player.paused) {
+      this.props.pause()
+    }
   }
 
   onTrackDuration(time, videoDuration) {
@@ -186,4 +195,6 @@ class SpeechScene extends Component {
 
 }
 
-export default SpeechScene
+export default connect(state => ({
+  player: state.player,
+}), { pause })(SpeechScene)

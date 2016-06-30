@@ -25,6 +25,7 @@ class VideoContainer extends Component {
 
   componentDidMount() {
     const { onTrackDuration, onEndingVideo } = this.props
+
     this.timer = setInterval(() => {
 
       // Track duration
@@ -32,6 +33,11 @@ class VideoContainer extends Component {
         this.refs.video.currentTime,
         this.refs.video.duration
       )
+
+      // Check pause
+      if (this.props.player.paused && !this.refs.video.paused) {
+        this.refs.video.pause()
+      }
 
       // Check ending of the video
       if (Math.floor(this.refs.video.currentTime) == Math.floor(this.refs.video.duration)) {
@@ -46,8 +52,9 @@ class VideoContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { paused } = nextProps.player
-    if (paused !== this.props.player.paused) {
+    const { source, player } = nextProps
+    const { paused } = player
+    if (paused !== this.props.player.paused || source !== this.props.source) {
       if (paused) {
         this.refs.video.pause()
       } else {

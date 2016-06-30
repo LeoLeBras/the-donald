@@ -1,13 +1,19 @@
 [{
-  "id": "0",
+  "id": "1",
   "slug": "childhood",
   "name": "Childhood",
-  "duration": "1min",
-  "video": "http://localhost:3001/videos/launch.mp4"
+  "duration": "1min39",
+  "video": "http://localhost:3001/videos/childhood.mp4"
 }, {
-  "id": "1",
-  "slug": "businessman",
-  "name": "Businessman",
-  "duration": "2min",
-  "video": "http://localhost:3001/videos/launch.mp4"
+  "id": "2",
+  "slug": "ascension",
+  "name": "Ascension",
+  "duration": "4min26",
+  "video": "http://localhost:3001/videos/ascension.mp4"
+}, {
+  "id": "3",
+  "slug": "politic",
+  "name": "Politic",
+  "duration": "3min10",
+  "video": "http://localhost:3001/videos/politic.mp4"
 }]

@@ -1,8 +1,11 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { pause } from '@store/modules/player'
 import Header from './components/Header'
 import Video from './components/Video'
+import Pagination from './components/Pagination'
 import styles from './ChapterScene'
 import data from './data.json'
 
@@ -22,16 +25,38 @@ class ChapterScene extends Component {
     router: React.PropTypes.object.isRequired
   }
 
+  componentDidMount() {
+    if (!this.props.player.paused) {
+      this.props.pause()
+    }
+  }
+
   onShowVideo() {
+    this.props.pause()
     this.setState({
       showVideo: !this.state.showVideo,
     })
   }
 
+  componentWillReceiveProps(nextProps) {
+    const chapter = data.find(
+      item => item.slug == this.props.params.slug
+    )
+    const newChapter = data.find(
+      item => item.slug == nextProps.params.slug
+    )
+    if (chapter.id !== newChapter.id) {
+      this.props.pause()
+      this.setState({
+        showVideo: !this.state.showVideo,
+      })
+    }
+  }
+
   onEndingVideo() {
     const { slug } = this.props.params
     const currentChapter = data.find(item => item.slug == slug )
-    const nextChapter = data.find(item => item.id == currentChapter.id + 1)
+    const nextChapter = data.find(item => item.id == parseInt(currentChapter.id) + 1)
     if (nextChapter) {
       this.context.router.replace('/chapter/' + nextChapter.slug)
     }
@@ -45,16 +70,20 @@ class ChapterScene extends Component {
     const { showVideo } = this.state
     const chapter = data.find(item => item.slug == slug )
     return (
-      <div className={styles.container}>
+      <div className={styles.container} style={{ backgroundImage: `url('http://localhost:3001/images/${chapter.slug}.jpg')` }}>
         <Header
           onNext={::this.onShowVideo}
           {...chapter}
           showVideo={showVideo}
         />
         <Video
-          source={chapter.video}
+          source={`http://localhost:3001/videos/${chapter.slug}.mp4`}
           showVideo={showVideo}
           onEndingVideo={::this.onEndingVideo}
+        />
+        <Pagination
+          prev={true}
+          next={true}
         />
       </div>
     )
@@ -62,4 +91,6 @@ class ChapterScene extends Component {
 
 }
 
-export default ChapterScene
+export default connect((state) => ({
+  player: state.player,
+}), { pause })(ChapterScene)

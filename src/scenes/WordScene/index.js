@@ -1,6 +1,8 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { pause } from '@store/modules/player'
 import Back from '@components/Back'
 import Video from './components/Video'
 import Header from './components/Header'
@@ -13,6 +15,12 @@ class WordScene extends Component {
 
   static contextTypes = {
     router: React.PropTypes.object.isRequired
+  }
+
+  componentDidMount() {
+    if (this.props.player.paused) {
+      this.props.pause()
+    }
   }
 
   render(): React$Element {
@@ -40,4 +48,6 @@ class WordScene extends Component {
 
 }
 
-export default WordScene
+export default connect(state => ({
+  player: state.player,
+}), { pause })(WordScene)

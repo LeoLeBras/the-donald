@@ -12,16 +12,16 @@ type Props = {
 }
 
 const Header = (props): React$Element => {
-  const { onNext, showVideo } = props
+  const { onNext, showVideo, id, duration, name } = props
   return (
     <Motion style={{ toValue: spring(showVideo ? 0 : 1) }}>
       {({ toValue }) => (
         <div style={{ opacity: toValue }}>
           <div className={styles.circle}></div>
           <div className={styles.wrapper}>
-            <div className={styles.metadata}>Chapter 1 | 1min</div>
+            <div className={styles.metadata}>Chapter {id} | {duration}</div>
             <div className={styles.title}>Trump</div>
-            <div className={styles.subtitle}>His Childhood</div>
+            <div className={styles.subtitle}>{name}</div>
             <StartButton onPress={onNext} />
           </div>
         </div>
