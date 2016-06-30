@@ -1,7 +1,8 @@
 /* @flow */
 
 import React, { Component } from 'react'
-import ReactTransitionGroup from 'react-addons-transition-group'
+import { connect } from 'react-redux'
+import { pause } from '@store/modules/player'
 import { Link } from 'react-router'
 import { Motion, spring } from 'react-motion'
 import { withRouter } from 'react-router'
@@ -12,6 +13,7 @@ import StartButton from '@components/StartButton'
 import styles from './LaunchScene'
 import Video from './components/Video'
 import Content from './components/Content'
+import Links from './components/Links'
 
 type State = {
   open: boolean,
@@ -34,7 +36,10 @@ class LaunchScene extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ open: true })
-    }, 1000)
+    }, 2000)
+    if (this.props.player.paused) {
+      this.props.pause()
+    }
   }
 
   onNext() {
@@ -53,10 +58,15 @@ class LaunchScene extends Component {
           onNext={::this.onNext}
           open={open}
         />
+        <Links
+          open={open}
+        />
       </div>
     )
   }
 
 }
 
-export default LaunchScene
+export default connect(state => ({
+  player: state.player,
+}), { pause })(LaunchScene)

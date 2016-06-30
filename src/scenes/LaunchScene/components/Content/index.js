@@ -21,7 +21,6 @@ const Content = (props: Props) => {
           <div className={styles.wrapper}>
             <Title>Trump</Title><br/>
             <span className={styles.subtitle}>Why is winning ?</span>
-            <StartButton onPress={onNext} />
           </div>
         </div>
       )}
