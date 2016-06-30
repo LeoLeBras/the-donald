@@ -13,7 +13,7 @@ class Video extends Component {
   props: Props
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.currentTime !==this.props.currentTime
+    return nextProps.currentTime !== this.props.currentTime
   }
 
   render(): React$Element {

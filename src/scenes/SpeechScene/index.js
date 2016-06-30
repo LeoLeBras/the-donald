@@ -87,10 +87,15 @@ class SpeechScene extends Component {
 
     // Handle progress
     const currentEvent = eventsData.filter(
-      item => (
-        item.from.split(':').join('') <= duration
-      )
+      item => {
+        const fromNormalized = item.from.split(':').map(a => parseInt(a))
+        const from = Math.floor(fromNormalized[1] + fromNormalized[0] * 60)
+        return (
+          from <= duration
+        )
+      }
     ).reverse()[0]
+
     const currentPopularityItem = currentEvent
       ? popularityData.d
         .map((item, index) => ({
@@ -144,8 +149,9 @@ class SpeechScene extends Component {
       .find(event => currentPopularityItem.d == event.date)
 
     if (currentEvent) {
+      const from = currentEvent.from.split(':').map(a => parseInt(a))
       this.setState({
-        currentTimeVideo: Math.floor(currentEvent.from.split(':')[1])
+        currentTimeVideo: Math.floor(from[1] + from[0] * 60)
       })
     }
 
