@@ -66,8 +66,8 @@ export const words = [{
   likes: '2839',
 }, {
   id: 12,
-  name: 'Celebrity',
+  name: 'Orator',
   rank: 3,
-  slug: 'celebrity',
-  likes: '1000',
+  slug: 'orator',
+  likes: '9123',
 }]
