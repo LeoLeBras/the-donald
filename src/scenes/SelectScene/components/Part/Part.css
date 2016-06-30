@@ -6,15 +6,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   position: relative;
   height: 100vh;
-
   background-color: grey;
-  background-size: cover;
+  background-size: 200% auto;
   background-position: center;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
+  transition: ease background-size .2s, ease opacity .3s;
+}
+
+.container:hover {
+  background-size: 300% auto;
 }
 
 @media screen and (min-width: 651px) {
@@ -60,4 +63,8 @@
 
 .button:hover:before {
   transform: translateX(.25rem);
+}
+
+.container:hover .button:before {
+  transform: translateX(.5rem);
 }

@@ -12,8 +12,8 @@ type Props = {
 const Part = (props: Props): React$Element => {
   const { image, text, onClick } = props
   return (
-    <div className={styles.container} style={{ backgroundImage: `url(${image})` }}>
-      <div className={styles.button} onClick={onClick}>{text}</div>
+    <div className={styles.container} style={{ backgroundImage: `url(${image})` }} onClick={onClick}>
+      <div className={styles.button}>{text}</div>
     </div>
   )
 }

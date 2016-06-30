@@ -9,6 +9,7 @@
   height: 100vh;
   overflow: hidden;
   display: flex;
+  background-color: black;
 }
 
 @media screen and (max-width: 650px) {
@@ -28,4 +29,5 @@
   top: 0; bottom: 0;
   left: 0; right: 0;
   background-color: rgba(0, 0, 0, .33);
+  pointer-events: none;
 }
