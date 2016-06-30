@@ -1,0 +1,13 @@
+[{
+  "id": "0",
+  "slug": "childhood",
+  "name": "Childhood",
+  "duration": "1min",
+  "video": "http://localhost:3001/videos/launch.mp4"
+}, {
+  "id": "1",
+  "slug": "businessman",
+  "name": "Businessman",
+  "duration": "2min",
+  "video": "http://localhost:3001/videos/launch.mp4"
+}]

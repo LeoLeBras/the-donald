@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import Back from '@components/Back'
 import Header from './components/Header'
 import Text from './components/Text'
+import Tweets from './components/Tweets'
 import styles from './WordScene'
 import content from './content.json'
 
@@ -22,6 +23,9 @@ class WordScene extends Component {
           title={word.title}
         />
         <Text>{word.content}</Text>
+        <Tweets
+          slug={slug}
+        />
         <Back goBack={() => this.context.router.replace('/words')} />
       </div>
     )

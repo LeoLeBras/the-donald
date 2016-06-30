@@ -46,7 +46,7 @@ class Graph extends Component {
           <ScatterPlot
             width={window.innerWidth}
             height={200}
-            rScale={() => 150}
+            rScale={() => 200}
             colorScale={() => 'white'}
             data={[{
               values: [

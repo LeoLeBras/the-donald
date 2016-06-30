@@ -8,6 +8,7 @@ type Props = {
   source: string,
   enableDurationHandling: boolean,
   onTrackDuration: Function,
+  onEndingVideo: Function,
 }
 
 class VideoContainer extends Component {
@@ -15,16 +16,26 @@ class VideoContainer extends Component {
   timer = null
 
   static defaultProps = {
-    enableDurationHandling: false
+    enableDurationHandling: false,
+    onTrackDuration: () => true,
+    onEndingVideo: () => true,
   }
 
   componentDidMount() {
-    const { onTrackDuration } = this.props
+    const { onTrackDuration, onEndingVideo } = this.props
     this.timer = setInterval(() => {
+
+      // Track duration
       onTrackDuration(
         this.refs.video.currentTime,
         this.refs.video.duration
       )
+
+      // Check ending of the video
+      if (Math.floor(this.refs.video.currentTime) == Math.floor(this.refs.video.duration)) {
+        onEndingVideo()
+      }
+
     }, 750)
   }
 

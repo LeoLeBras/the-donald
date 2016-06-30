@@ -36,7 +36,7 @@ class LaunchScene extends Component {
   }
 
   onNext() {
-    this.context.router.replace('/life')
+    this.context.router.replace('/chapter/childhood')
   }
 
   render() {
