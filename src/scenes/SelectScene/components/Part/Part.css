@@ -22,8 +22,24 @@
     height: 50vh;
   }
 
-  .container:hover {
-    height: 80%;
+  .container:nth-child(1) {
+    top: 0;
+    z-index: 0;
+  }
+
+  .container:nth-child(1):hover {
+    height: 60vh;
+    z-index: 1;
+  }
+
+  .container:nth-child(2) {
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .container:nth-child(2):hover {
+    height: 60vh;
+    z-index: 1;
   }
 }
 
