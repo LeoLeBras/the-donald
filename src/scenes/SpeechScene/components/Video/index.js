@@ -20,7 +20,7 @@ class Video extends Component {
     const { onTrackDuration, currentTime } = this.props
     return (
       <VideoContainer
-        source="http://localhost:3001/videos/launch.mp4"
+        source="http://localhost:3001/videos/speech.mp4"
         onTrackDuration={onTrackDuration}
         currentTime={{
           key: Math.random(),
