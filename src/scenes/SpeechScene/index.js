@@ -38,18 +38,30 @@ class SpeechScene extends Component {
 
     // Normalizr events and words
     const newState = {}
-    const duration = `00:${Math.floor(time) < 10 ? '0' : ''}${Math.floor(time)}`.split(':').join('')
+    const duration = Math.floor(time)
     const words = wordsData.filter(
-      item => (
-        item.from.split(':').join('') <= duration &&
-        item.to.split(':').join('') >= duration
-      )
+      item => {
+        const fromNormalized = item.from.split(':').map(a => parseInt(a))
+        const toNormalized = item.to.split(':').map(a => parseInt(a))
+        const from = Math.floor(fromNormalized[1] + fromNormalized[0] * 60)
+        const to = Math.floor(toNormalized[1] + toNormalized[0] * 60)
+        return (
+          from <= duration &&
+          to >= duration
+        )
+      }
     )
     const events = eventsData.filter(
-      item => (
-        item.from.split(':').join('') <= duration &&
-        item.to.split(':').join('') >= duration
-      )
+      item => {
+        const fromNormalized = item.from.split(':').map(a => parseInt(a))
+        const toNormalized = item.to.split(':').map(a => parseInt(a))
+        const from = Math.floor(fromNormalized[1] + fromNormalized[0] * 60)
+        const to = Math.floor(toNormalized[1] + toNormalized[0] * 60)
+        return (
+          from <= duration &&
+          to >= duration
+        )
+      }
     )
 
     // Remove word / event
