@@ -1,6 +1,8 @@
 /* @flow */
 
 import React, { Component } from 'react'
+import UpIcon from './UpIcon'
+import DownIcon from './DownIcon'
 import { Motion, spring } from 'react-motion'
 import styles from './Content'
 
@@ -21,6 +23,8 @@ class Content extends Component {
     const { word, event } = this.props
     const eventName = event ? event.name : ''
     const eventDate = event ? event.date : ''
+    const eventState = event ? event.state : null
+    console.log(event)
     return (
       <div className={styles.container}>
         <Motion style={{ opacity: spring(event ? 1 : 0) }}>
@@ -42,6 +46,10 @@ class Content extends Component {
               <div className={styles.eventBox}></div>
               <div className={styles.eventDate}>{eventDate}</div>
               <div className={styles.eventTitle}>{eventName}</div>
+              <div className={styles.icon}>
+                { eventState == 'up' && <UpIcon /> }
+                { eventState == 'down' && <DownIcon /> }
+              </div>
             </div>
           )}
         </Motion>

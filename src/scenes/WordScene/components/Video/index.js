@@ -2,6 +2,7 @@
 
 import React from 'react'
 import VideoContainer from '@containers/VideoContainer'
+import styles from './Video'
 
 type Props = {
   source: string,
@@ -10,9 +11,13 @@ type Props = {
 const Video = (props: Props): React$Element => {
   const { source } = props
   return (
-    <VideoContainer
-      source={source}
-    />
+    <div>
+      <VideoContainer
+        source={source}
+        loop={true}
+      />
+      <div className={styles.overlay}></div>
+    </div>
   )
 }
 

@@ -9,6 +9,7 @@ type Props = {
   enableDurationHandling: boolean,
   onTrackDuration: Function,
   onEndingVideo: Function,
+  loop: boolean,
 }
 
 class VideoContainer extends Component {
@@ -19,6 +20,7 @@ class VideoContainer extends Component {
     enableDurationHandling: false,
     onTrackDuration: () => true,
     onEndingVideo: () => true,
+    loop: false,
   }
 
   componentDidMount() {
@@ -60,7 +62,7 @@ class VideoContainer extends Component {
   }
 
   render() {
-    const { source, player } = this.props
+    const { source, player, loop } = this.props
     return (
       <div className={styles.container}>
         <video
@@ -68,6 +70,7 @@ class VideoContainer extends Component {
           className={styles.video}
           muted={player.muted}
           autoPlay={true}
+          loop={loop}
           src={source}>
         </video>
       </div>

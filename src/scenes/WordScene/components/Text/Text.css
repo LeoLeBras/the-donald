@@ -5,8 +5,10 @@
 .container {
   margin: auto;
   max-width: 50rem;
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
   font-family: 'Chalet-Regular';
-  line-height: 2.5em;
+  color: white;
+  font-style: .9rem;
+  line-height: 1.66em;
   opacity: .9;
 }

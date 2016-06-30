@@ -82,6 +82,7 @@ class SpeechScene extends Component {
       newState.event = {
         name: item.name,
         date: item.date,
+        state: item.state,
       }
     })
 
