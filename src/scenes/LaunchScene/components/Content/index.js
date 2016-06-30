@@ -20,7 +20,7 @@ const Content = (props: Props) => {
           <div className={styles.circle}></div>
           <div className={styles.wrapper}>
             <Title>Trump</Title><br/>
-            <span className={styles.subtitle}>Why is winning ?</span>
+            <span className={styles.subtitle}>Why is he winning ?</span>
           </div>
         </div>
       )}

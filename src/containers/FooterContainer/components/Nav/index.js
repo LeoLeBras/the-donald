@@ -29,7 +29,7 @@ class Nav extends Component {
           [styles.text]: true,
           [styles.activeText]: location == 'word' || location == 'words',
         })} to="/words">
-          Who is ?
+          Who is he ?
         </Link>
       </nav>
     )
