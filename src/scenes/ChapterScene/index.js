@@ -82,8 +82,8 @@ class ChapterScene extends Component {
           onEndingVideo={::this.onEndingVideo}
         />
         <Pagination
-          prev={true}
-          next={true}
+          prev={data.find(item => item.id == parseInt(chapter.id) - 1)}
+          next={data.find(item => item.id == parseInt(chapter.id) + 1)}
         />
       </div>
     )
