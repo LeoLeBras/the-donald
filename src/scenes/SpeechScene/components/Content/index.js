@@ -31,7 +31,7 @@ class Content extends Component {
         <Motion style={{ opacity: spring(word ? 1 : 0) }}>
           {({ opacity }) => (
             <div className={styles.wordContainer} style={{ opacity: opacity }}>
-              <div className={styles.wordText}>Immigration</div>
+              <div className={styles.wordText}>{word}</div>
               <div className={styles.wordBox}></div>
             </div>
           )}
