@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '',
   entry: [
     'babel-polyfill',
     'eventsource-polyfill',
-    'webpack-hot-middleware/client',
     './src/index',
   ],
   resolve: {
@@ -22,13 +22,17 @@ module.exports = {
     },
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/../dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/',
+    publicPath: '',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+    }),
     new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('style.css'),
   ],
   module: {
     loaders: [{
@@ -38,27 +42,32 @@ module.exports = {
         presets: ['es2015', 'stage-0', 'react'],
         env: {
           development: {
-            presets: ['react-hmre']
-          }
+            presets: ['react-hmre'],
+          },
         },
         compact: false,
       },
       include: path.join(__dirname, '../src'),
     }, {
       test: /\.css$/,
-      loaders: [
+      loader: ExtractTextPlugin.extract(
         'style',
         'css?modules&localIdentName=[name]__[local]___[hash:base64:5]',
-        'postcss',
-      ],
+        'postcss'
+      ),
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loaders: [
-        'file-loader?name=[path][name].[ext]'
+        'file-loader?name=[path][name].[ext]',
       ]
     }, {
       test: /\.json?$/,
-      loaders: ['json']
+      loaders: ['json'],
     }],
   },
+  postcss: () => ([
+    require('autoprefixer')({
+      browsers: '> 98%',
+    })
+  ])
 };
