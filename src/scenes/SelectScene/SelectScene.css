@@ -8,6 +8,19 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .container {
+    flex-direction: row;
+  }
 }
 
 .overlay {

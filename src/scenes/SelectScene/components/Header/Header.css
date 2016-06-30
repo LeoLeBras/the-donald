@@ -6,8 +6,22 @@
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: -10rem;
   text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    margin-top: 0rem;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px 15px;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .container {
+    margin-top: -10rem;
+  }
 }
 
 .title {
@@ -20,8 +34,24 @@
 .text {
   font-family: 'Agenda-Medium';
   color: white;
-  max-width: 35rem;
   letter-spacing: .025em;
   line-height: 1.25em;
   -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (max-width: 650px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .text {
+    font-size: 0.8rem;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .text {
+    max-width: 35rem;
+  }
 }
