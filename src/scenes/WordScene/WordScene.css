@@ -3,8 +3,8 @@
  */
 
 .container {
-  height: calc(100vh - 2rem);
-  overflow-y: scroll;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .wrapper {
