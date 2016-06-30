@@ -18,6 +18,6 @@ gulp.task('replace-path', () => {
   gulp.src([
     'dist/bundle.js',
     'dist/style.css',
-  ]).pipe(replace('http://localhost:3001/', 'http://donald-trump.mickaelzhang.com/'))
+  ]).pipe(replace('http://localhost:3001/', './'))
     .pipe(gulp.dest('dist/'));
 })

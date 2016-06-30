@@ -5,6 +5,10 @@ gulp.task('default', () => {
   browserSync.init({
     server: {
       baseDir: './',
+      middleware: (req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        next()
+      }
     },
   })
 })

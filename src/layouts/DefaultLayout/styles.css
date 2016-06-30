@@ -10,8 +10,36 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
  * Fonts
  */
 
+@font-face {
+  font-family: 'Agenda-Medium';
+  src: url('http://localhost:3001/fonts/Agenda-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Chalet-Comprime';
+  src: url('http://localhost:3001/fonts/Chalet-Comprime.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'BaseTwelve-Bold';
+  src: url('http://localhost:3001/fonts/BaseTwelve-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Chalet-Regular';
+  src: url('http://localhost:3001/fonts/Chalet-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 body {
-  font-family: 'ChaletComprime';
+  font-family: 'Chalet-Comprime';
   font-size: calc(100% + .1vw + .1vh);
   letter-spacing: .1em;
 }
