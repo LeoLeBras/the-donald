@@ -6,23 +6,51 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  height: 100vh;
+  position: absolute;
   background-color: grey;
-  background-size: 200% auto;
+  background-size: cover;
   background-position: center;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   transition: ease background-size .2s, ease opacity .3s;
+  transition: width 0.4s linear, height 0.4s linear, left 0.4s linear, right 0.4s linear;
 }
 
-.container:hover {
-  background-size: 300% auto;
+@media screen and (max-width: 650px) {
+  .container {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .container:hover {
+    height: 80%;
+  }
 }
 
 @media screen and (min-width: 651px) {
   .container {
     width: 50vw;
+    height: 100vh;
+  }
+
+  .container:nth-child(1) {
+    left: 0;
+    z-index: 0;
+  }
+
+  .container:nth-child(1):hover {
+    width: 70vw;
+    z-index: 1;
+  }
+
+  .container:nth-child(2) {
+    right: 0;
+    z-index: 0;
+  }
+
+  .container:nth-child(2):hover {
+    width: 70vw;
+    z-index: 1;
   }
 }
 
