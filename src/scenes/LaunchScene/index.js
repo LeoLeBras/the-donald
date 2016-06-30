@@ -31,8 +31,10 @@ class LaunchScene extends Component {
     }
   }
 
-  onSkipingContent() {
-    this.setState({ open: true })
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ open: true })
+    }, 1000)
   }
 
   onNext() {
@@ -45,7 +47,6 @@ class LaunchScene extends Component {
       <div className={styles.container}>
         <Video
           onTrackDuration={::this.onTrackDuration}
-          onSkipingContent={::this.onSkipingContent}
           open={open}
         />
         <Content

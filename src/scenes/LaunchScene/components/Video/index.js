@@ -8,12 +8,11 @@ import styles from './Video'
 
 type Props = {
   onTrackDuration: () => any,
-  onSkipingContent: () => any,
   open: boolean,
 }
 
 const Video = (props: Props): React$Element => {
-  const { open, onTrackDuration, onSkipingContent } = props
+  const { open, onTrackDuration } = props
   return (
     <div>
       <Motion style={{ toValue: spring(open ? 1.33 : 1) }}>
@@ -22,6 +21,7 @@ const Video = (props: Props): React$Element => {
             <VideoContainer
               onTrackDuration={() => onTrackDuration()}
               source="http://localhost:3001/videos/launch.mp4"
+              loop={true}
             />
           </div>
         )}
@@ -31,11 +31,6 @@ const Video = (props: Props): React$Element => {
           <div style={{ opacity: toValue }} className={styles.overlay}></div>
         )}
       </Motion>
-      { !open &&
-        <Skip
-          onPress={() => onSkipingContent()}
-        />
-      }
     </div>
   )
 }
