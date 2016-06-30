@@ -3,12 +3,7 @@
  */
 
 .container {
-  position: relative;
-  height: 30rem;
-  background-color: white;
-  background-image: url('http://api-trump.mickaelzhang.com/gif/nationalist');
-  background-size: cover;
-  background-position: center;
+  height: 100vh;
 }
 
 .title {

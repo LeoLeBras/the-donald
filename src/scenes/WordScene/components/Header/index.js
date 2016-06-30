@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Header = (props: Props): React$Element => {
-  const { title } = props
+  const { title, slug } = props
   return (
     <div className={styles.container}>
       <span className={styles.title}>{title}</span>

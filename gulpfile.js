@@ -5,6 +5,7 @@ gulp.task('copy-static-to-dist', () => {
   gulp.src([
     'static/*.html',
     'static/*.txt',
+    'static/*.ico',
   ]).pipe(gulp.dest('dist/'));
   gulp.src([
     'static/images/*',

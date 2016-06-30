@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import Back from '@components/Back'
+import Video from './components/Video'
 import Header from './components/Header'
 import Text from './components/Text'
 import Tweets from './components/Tweets'
@@ -19,8 +20,12 @@ class WordScene extends Component {
     const word = content.find(item => item.slug == slug)
     return (
       <div className={styles.container}>
+        <Video
+          source={`http://localhost:3001/videos/${slug}.mp4`}
+        />
         <Header
           title={word.title}
+          slug={word.slug}
         />
         <Text>{word.content}</Text>
         <Tweets
