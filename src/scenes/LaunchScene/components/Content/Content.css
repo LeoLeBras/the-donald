@@ -42,3 +42,25 @@
   letter-spacing: .133em;
   color: rgba(255, 255, 255, .5);
 }
+
+@media screen and (max-width: 800px) {
+  .circle {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .circle {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}

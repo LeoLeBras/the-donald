@@ -5,4 +5,18 @@
 .text {
   font-family: 'BaseTwelve-Bold';
   -webkit-font-smoothing: antialiased;
+  font-size: 8.5rem;
+}
+
+
+@media screen and (max-width: 800px) {
+  .text {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .text {
+    font-size: 5.5rem;
+  }
 }

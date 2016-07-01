@@ -41,3 +41,37 @@
 .link + .link {
   margin-left: 3rem;
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    margin-top: 5.5rem;
+  }
+
+  .link {
+    font-size: 1.25rem;
+  }
+  .link:before {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .link + .link {
+    margin-left: 2.5rem;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .container {
+    margin-top: 6rem;
+  }
+
+  .link {
+    display: block;
+  }
+
+  .link + .link {
+    margin-left: 0;
+    margin-top: .5rem;
+  }
+}

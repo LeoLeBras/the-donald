@@ -32,3 +32,17 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+@media screen and (max-width: 1300px) {
+  .item {
+    padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+    font-size: .75rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .item {
+    display: block;
+    margin-bottom: .5rem;
+  }
+}

@@ -82,3 +82,42 @@
   transform: translate(-50%, -50%);
   opacity: .5;
 }
+
+@media screen and (max-width: 900px) {
+  .eventBox {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .eventTitle {
+    transform: translate(-50%, -55%);
+    font-size: 1.9rem;
+  }
+
+  .eventDate {
+    transform: translate(-50%, -250%);
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wordContainer {
+    font-size: 4.5rem;
+    letter-spacing: .025em;
+  }
+
+  .wordBox {
+    height: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wordContainer {
+    font-size: 3rem;
+    letter-spacing: .025em;
+  }
+
+  .wordBox {
+    height: 5rem;
+  }
+}

@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import TransitionGroup from 'react-addons-transition-group'
 import FooterContainer from '@containers/FooterContainer'
-import styles from './styles'
+import styles from './DefaultLayout'
 
 type Props = {
   children: React$Element,

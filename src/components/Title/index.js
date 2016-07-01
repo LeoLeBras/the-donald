@@ -11,7 +11,7 @@ const Title = (props: Props): React$Element => {
   const { children } = props
   const size = props.size || '8.5rem'
   return (
-    <span className={styles.text} style={{ fontSize: size }}>
+    <span className={styles.text}>
       {children}
     </span>
   )
