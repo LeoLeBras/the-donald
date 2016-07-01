@@ -1,6 +1,6 @@
 {
   "name": "react-hot",
-  "description": "Hot reloading React components and error handling !",
+  "description": "Donal Trump webdoc",
   "version": "1.0.0",
   "scripts": {
     "start": "node build/server.js",
