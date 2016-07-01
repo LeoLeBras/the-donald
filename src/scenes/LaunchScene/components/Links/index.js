@@ -12,7 +12,7 @@ const Links = (props): React$Element => {
       {({ toValue }) => (
         <div className={styles.container} style={{ opacity: toValue }}>
           <Link to="/chapter/childhood" className={styles.link}>His Life</Link>
-          <Link to="/speech" className={styles.link}>What he said</Link>
+          <Link to="/speech" className={styles.link}>What he said ?</Link>
           <Link to="/words" className={styles.link}>Who is he ?</Link>
         </div>
       )}

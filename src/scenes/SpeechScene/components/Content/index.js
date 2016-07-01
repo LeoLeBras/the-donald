@@ -20,15 +20,30 @@ class Content extends Component {
     )
   }
   render(): React$Element {
-    const { word, event } = this.props
+    const { word, event, intro } = this.props
     const eventName = event ? event.name : ''
     const eventDate = event ? event.date : ''
     const eventState = event ? event.state : null
     return (
       <div className={styles.container}>
-        <Motion style={{ opacity: spring(event ? 1 : 0) }}>
+        <Motion style={{ opacity: spring(event || intro ? 1 : 0) }}>
           {({ opacity }) => (
             <div style={{ opacity: opacity }} className={styles.overlay}></div>
+          )}
+        </Motion>
+        <Motion style={{ opacity: spring(intro ? 1 : 0) }}>
+          {({ opacity }) => (
+            <div style={{ opacity: opacity }} className={styles.introContainer}>
+              <div className={styles.introTitle}>What he said ?</div>
+              <div className={styles.introExplain}>
+                THE CHART TRACKING DONALD TRUMP’S POLL RATING
+                AGAINST SOME OF THE MORE OUTRAGEOUS COMMENTS HE HAS MADE
+                THUS FAR ON THE PRIMARY CAMPAIGN TRAIL.
+              </div>
+              <div className={styles.introTrumpastic}>
+                Trumpastic : Republican nomination polling, national averages, %
+              </div>
+            </div>
           )}
         </Motion>
         <Motion style={{ opacity: spring(word ? 1 : 0) }}>

@@ -19,6 +19,7 @@ type Props = {}
 type State = {
   word: null | string,
   event: null | Object,
+  intro: boolean,
 }
 
 class SpeechScene extends Component {
@@ -31,6 +32,7 @@ class SpeechScene extends Component {
     progress: 0,
     score: 0,
     currentTimeVideo: 0,
+    intro: true,
   }
 
   static contextTypes = {
@@ -38,9 +40,15 @@ class SpeechScene extends Component {
   }
 
   componentDidMount() {
-    if (this.props.player.paused) {
+    if (!this.props.player.paused) {
       this.props.pause()
     }
+    setTimeout(() => {
+      this.props.pause()
+      this.setState({
+        intro: false,
+      })
+    }, 4000)
   }
 
   onTrackDuration(time, videoDuration) {
@@ -129,11 +137,13 @@ class SpeechScene extends Component {
     )
 
     // Set state
-    this.setState({
-      ...newState,
-      progress,
-      score,
-    })
+    if (!this.state.intro) {
+      this.setState({
+        ...newState,
+        progress,
+        score,
+      })
+    }
   }
 
   onChangeCurrentTime(e) {
@@ -182,6 +192,7 @@ class SpeechScene extends Component {
         <Content
           word={this.state.word}
           event={this.state.event}
+          intro={this.state.intro}
         />
         <Trumpastic
           score={this.state.score}

@@ -23,7 +23,7 @@ class Nav extends Component {
           [styles.text]: true,
           [styles.activeText]: location == 'speech',
         })} to="/speech">
-          What he said
+          What he said ?
         </Link>
         <Link className={className({
           [styles.text]: true,
