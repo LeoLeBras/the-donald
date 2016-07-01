@@ -34,7 +34,7 @@ class Content extends Component {
         <Motion style={{ opacity: spring(intro ? 1 : 0) }}>
           {({ opacity }) => (
             <div style={{ opacity: opacity }} className={styles.introContainer}>
-              <div className={styles.introTitle}>What he said ?</div>
+              <div className={styles.introTitle}>What did he say ?</div>
               <div className={styles.introExplain}>
                 THE CHART TRACKING DONALD TRUMP’S POLL RATING
                 AGAINST SOME OF THE MORE OUTRAGEOUS COMMENTS HE HAS MADE
