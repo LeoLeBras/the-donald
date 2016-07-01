@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { compose } from 'recompose'
-import connectWithTransitionGroup from 'connect-with-transition-group';
 import { pause } from '@store/modules/player'
 import Header from './components/Header'
 import Video from './components/Video'
