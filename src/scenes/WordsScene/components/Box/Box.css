@@ -35,6 +35,10 @@
   position: absolute;
   z-index: 11;
   text-align: center;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-44%);
 }
 
 .favorite {
