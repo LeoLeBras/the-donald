@@ -1,7 +1,7 @@
 # [school-project] the-donald :us:
 http://donald-trump.mickaelzhang.com/
 
-From Monday 27th of June to Friday 1th of July, our goal is to create a webdoc.
+From Monday 27th of June to Friday 1th of July, our goal was to create a webdoc.
 
 API source : https://github.com/mickaelzhang/trump-api
 
@@ -20,14 +20,15 @@ API source : https://github.com/mickaelzhang/trump-api
 - [React-Redux](http://rackt.github.io/redux/index.html) `^4.0.1` a predictable state container for Javascript apps
 - [Babel](http://babeljs.io/) `6.x.x` for ES6+ support
 - [Webpack](https://webpack.github.io/) module loader and bundler
--
+
 ## Make the awesome
+First :
 ```shell
 $ npm install
 $ npm start
 ```
 
-And, in another terminal :
+In another terminal :
 ```shell
 $ cd static
 $ gulp
