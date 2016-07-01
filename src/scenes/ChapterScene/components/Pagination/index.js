@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import { compose, pure } from 'recompose'
 import { withRouter } from 'react-router'
 import className from 'classnames'
 import styles from './Pagination'
@@ -27,4 +28,7 @@ const Pagination = (props: Props): React$Element => {
   )
 }
 
-export default withRouter(Pagination)
+export default compose(
+  withRouter,
+  pure
+)(Pagination)

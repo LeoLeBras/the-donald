@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Motion, spring } from 'react-motion'
+import { compose, onlyUpdateForKeys } from 'recompose'
 import VideoContainer from '@containers/VideoContainer'
 import styles from './Video'
 
@@ -27,4 +28,6 @@ const Video = (props: Props): React$Element => {
   )
 }
 
-export default Video
+export default compose(
+  onlyUpdateForKeys(['showVideo'])
+)(Video)

@@ -24,7 +24,6 @@ class Content extends Component {
     const eventName = event ? event.name : ''
     const eventDate = event ? event.date : ''
     const eventState = event ? event.state : null
-    console.log(event)
     return (
       <div className={styles.container}>
         <Motion style={{ opacity: spring(event ? 1 : 0) }}>
