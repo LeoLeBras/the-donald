@@ -28,7 +28,6 @@
   .wrapper {
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
-    /* overflow-y: scroll; */
     padding: 7rem 1rem 2rem 2rem;
     max-height: 100vh;
   }

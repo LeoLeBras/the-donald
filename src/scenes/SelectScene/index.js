@@ -17,12 +17,12 @@ class SelectScene extends Component {
       <div className={styles.container}>
         <Part
           image="http://localhost:3001/images/trump-guy.jpg"
-          text="Par ses discours"
+          text="What he said ?"
           onClick={() => router.replace('/speech')}
         />
         <Part
           image="http://localhost:3001/images/trump-people.jpg"
-          text="Par nos mots"
+          text="Who he is ?"
           onClick={() => router.replace('/words')}
         />
         <div className={styles.overlay}></div>
