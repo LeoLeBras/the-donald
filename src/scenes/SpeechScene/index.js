@@ -48,7 +48,7 @@ class SpeechScene extends Component {
       this.setState({
         intro: false,
       })
-    }, 4000)
+    }, 4000000000)
   }
 
   onTrackDuration(time, videoDuration) {
@@ -132,7 +132,7 @@ class SpeechScene extends Component {
 
     const score = Math.floor(
       currentPopularityItem
-        ? currentPopularityItem.m / 32 * 100
+        ? currentPopularityItem.m * 1.2
         : 0
     )
 
