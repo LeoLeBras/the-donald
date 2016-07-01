@@ -14,7 +14,7 @@ type Props = {
 const Back = (props: Props): React$Element => {
   const { goBack } = props
   return (
-    <div className={styles.container} onClick={() => props.router.goBack()}>
+    <div className={styles.container} onClick={() => goBack()}>
       <Icon className={styles.icon} />
       Back
     </div>
