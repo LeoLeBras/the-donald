@@ -6,6 +6,7 @@
   position: relative;
   left: -1rem;
   min-height: 141px;
+  display: flex;  
 }
 
 .item {
@@ -13,8 +14,6 @@
   position: relative;
   box-sizing: border-box;
   vertical-align: top;
-  margin-right: 1rem;
-  width: 47%;
   border: 1px solid white;
   padding: 1.75rem 2.25rem 1.66rem 1.75rem;
   font-family: 'Chalet-Regular';
@@ -41,8 +40,27 @@
 }
 
 @media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
   .item {
     display: block;
     margin-bottom: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .item {
+    display: block;
+    width: 47%;
   }
 }

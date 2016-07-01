@@ -26,9 +26,9 @@
 
 @media screen and (max-width: 800px) {
   .wrapper {
-    left: 0; top: 0;
-    transform: translate(0, 0);
-    overflow: scroll;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    /* overflow-y: scroll; */
     padding: 7rem 1rem 2rem 2rem;
     max-height: 100vh;
   }
