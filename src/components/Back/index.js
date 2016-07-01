@@ -1,21 +1,24 @@
 /* @flow */
 
 import React from 'react'
+import { withRouter } from 'react-router'
 import Icon from './Icon'
 import styles from './Back'
 
 type Props = {
-  goBack: () => any,
+  router: {
+    goBack: Function,
+  },
 }
 
 const Back = (props: Props): React$Element => {
   const { goBack } = props
   return (
-    <div className={styles.container} onClick={goBack}>
+    <div className={styles.container} onClick={() => props.router.goBack()}>
       <Icon className={styles.icon} />
       Back
     </div>
   )
 }
 
-export default Back
+export default withRouter(Back)

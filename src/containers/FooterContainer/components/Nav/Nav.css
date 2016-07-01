@@ -9,9 +9,9 @@
 .text {
   position: relative;
   top: .05rem;
-  margin-left: 1rem;
-  font-size: .85em;
-  letter-spacing: .15em;
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  letter-spacing: .075em;
   color: rgba(0, 0, 0, .25);
   cursor: pointer;
   text-decoration: none;

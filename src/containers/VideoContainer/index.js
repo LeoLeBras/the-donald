@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Motion, spring } from 'react-motion'
+import StaticContainer from 'react-static-container'
 import styles from './VideoContainer'
 
 type Props = {
@@ -29,10 +31,12 @@ class VideoContainer extends Component {
     this.timer = setInterval(() => {
 
       // Track duration
-      onTrackDuration(
-        this.refs.video.currentTime,
-        this.refs.video.duration
-      )
+      if (onTrackDuration && this.refs.video) {
+        onTrackDuration(
+          this.refs.video.currentTime,
+          this.refs.video.duration
+        )
+      }
 
       // Check pause
       if (this.props.player.paused && !this.refs.video.paused) {
@@ -40,7 +44,7 @@ class VideoContainer extends Component {
       }
 
       // Check ending of the video
-      if (Math.floor(this.refs.video.currentTime) == Math.floor(this.refs.video.duration)) {
+      if (this.refs.video && Math.floor(this.refs.video.currentTime) == Math.floor(this.refs.video.duration)) {
         onEndingVideo()
       }
 
@@ -68,6 +72,14 @@ class VideoContainer extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    return (
+      nextProps.source != this.props.source ||
+      nextProps.player.paused != this.props.player.paused ||
+      nextProps.player.muted != this.props.player.muted
+    )
+  }
+
   render() {
     const { source, player, loop } = this.props
     return (
@@ -75,9 +87,9 @@ class VideoContainer extends Component {
         <video
           ref="video"
           className={styles.video}
-          muted={player.muted}
           autoPlay={true}
           loop={loop}
+          muted={player.muted}
           src={source}>
         </video>
       </div>
