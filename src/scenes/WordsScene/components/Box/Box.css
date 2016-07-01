@@ -12,17 +12,7 @@
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  width: calc(25.1vw - 1rem);
-  height: calc(22vh - .25rem);
   margin: .25rem;
-}
-
-.largeContainer {
-  height: calc((22vh - .25rem) * 2 + .5rem);
-}
-
-.mediumContainer {
-  width: calc((25.1vw - 1rem) * 2 + .5rem);
 }
 
 .gif {
@@ -129,10 +119,29 @@
 }
 
 @media screen and (max-width: 750px) {
-  .mediumContainer,
-  .largeContainer,
+  .container, .mediumContainer, .largeContainer {
+    width: calc(100vw - 40px);
+    height: 15rem;
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  .container:last-child {
+    margin-bottom: 4rem;
+  }
+}
+
+@media screen and (min-width: 751px) {
   .container {
-    width: 99vw;
-    height: 10rem;
+    width: calc(25.1vw - 1rem);
+    height: calc(22vh - .25rem);
+  }
+
+  .largeContainer {
+    height: calc((22vh - .25rem) * 2 + .5rem);
+  }
+
+  .mediumContainer {
+    width: calc((25.1vw - 1rem) * 2 + .5rem);
   }
 }
